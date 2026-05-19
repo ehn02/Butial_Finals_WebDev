@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cost Calculator | The Pet Haven & Hospital</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="shortcut icon" href="favicon.png" type="image/png">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container-fluid">
+            <a class="navbar-brand fw-bold" href="index.html">The Pet Haven & Hospital</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="services.html">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="prices.html">Price List</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="calculator.html">Cost Calculator</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main role="main">
+        <section class="bg-primary text-white py-5 mb-5">
+            <div class="container text-center">
+                <h1 class="display-4 fw-bold mb-3">Service Cost Calculator</h1>
+                <p class="lead">Get an instant quote for your pet's services</p>
+            </div>
+        </section>
+
+        <section class="py-5">
+            <div class="container">
+                <div class="row g-4">
+                    <div class="col-lg-6">
+                        <article class="card">
+                            <div class="card-header bg-primary text-white">
+                                <h3 class="card-title mb-0">Select Your Services</h3>
+                            </div>
+                            <div class="card-body">
+                                <form id="calculatorForm" novalidate>
+                                    <fieldset class="mb-4">
+                                        <legend class="form-label fw-bold text-primary mb-3">Pet Information</legend>
+                                        
+                                        <div class="mb-3">
+                                            <label for="petName" class="form-label">Pet Name *</label>
+                                            <input type="text" class="form-control" id="petName" name="petName" required placeholder="Enter your pet's name">
+                                            <div class="invalid-feedback">
+                                                Please enter your pet's name.
+                                            </div>
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <label for="petSize" class="form-label">Pet Size *</label>
+                                            <select class="form-select" id="petSize" name="petSize" required>
+                                                <option value="">-- Select Size --</option>
+                                                <option value="small">Small (Under 15 lbs)</option>
+                                                <option value="medium">Medium (15-50 lbs)</option>
+                                                <option value="large">Large (Over 50 lbs)</option>
+                                            </select>
+                                            <div class="invalid-feedback">
+                                                Please select your pet's size.
+                                            </div>
+                                        </div>
+                                    </fieldset>
+
+                                    <fieldset class="mb-4">
+                                        <legend class="form-label fw-bold text-primary mb-3">Grooming Services</legend>
+                                        
+                                        <div class="form-check mb-2">
+                                            <input class="form-check-input service-checkbox" type="checkbox" id="bathService" name="services" value="bath" data-price-small="300" data-price-medium="400" data-price-large="500" data-price="300">
+                                            <label class="form-check-label" for="bathService">
+                                                Full Bath & Dry <span class="text-muted">(Starting at ₱300)</span>
+                                            </label>
+                                        </div>
+
+                                        <div class="form-check mb-2">
+                                            <input class="form-check-input service-checkbox" type="checkbox" id="haircut" name="services" value="haircut" data-price-small="250" data-price-medium="350" data-price-large="450" data-price="250">
+                                            <label class="form-check-label" for="haircut">
+                                                Breed-Specific Haircut <span class="text-muted">(Starting at ₱250)</span>
+                                            </label>
+                                        </div>
+
+                                        <div class="form-check mb-2">
+                                            <input class="form-check-input service-checkbox" type="checkbox" id="nailTrim" name="services" value="nails" data-price-small="200" data-price-medium="300" data-price-large="400" data-price="200">
+                                            <label class="form-check-label" for="nailTrim">
+                                                Nail Trimming <span class="text-muted">(Starting at ₱200)</span>
+                                            </label>
+                                        </div>
+
+                                        <div class="form-check mb-3">
+                                            <input class="form-check-input service-checkbox" type="checkbox" id="earClean" name="services" value="ears" data-price-small="150" data-price-medium="200" data-price-large="250" data-price="150">
+                                            <label class="form-check-label" for="earClean">
+                                                Ear Cleaning <span class="text-muted">(Starting at ₱150)</span>
+                                            </label>
+                                        </div>
+                                    </fieldset>
+
+                                    <fieldset class="mb-4">
+                                        <legend class="form-label fw-bold text-primary mb-3">Veterinary Services</legend>
+                                        
+                                        <div class="form-check mb-2">
+                                            <input class="form-check-input service-checkbox" type="checkbox" id="checkup" name="services" value="checkup" data-price="500">
+                                            <label class="form-check-label" for="checkup">
+                                                General Check-up <span class="text-muted">(₱500)</span>
+                                            </label>
+                                        </div>
+
+                                        <div class="form-check mb-2">
+                                            <input class="form-check-input service-checkbox" type="checkbox" id="vaccination" name="services" value="vaccination" data-price="500">
+                                            <label class="form-check-label" for="vaccination">
+                                                Vaccination <span class="text-muted">(₱500 each)</span>
+                                            </label>
+                                        </div>
+
+                                        <div class="form-check mb-2">
+                                            <input class="form-check-input service-checkbox" type="checkbox" id="teethCleaning" name="services" value="teeth" data-price="500">
+                                            <label class="form-check-label" for="teethCleaning">
+                                                Teeth Cleaning <span class="text-muted">(₱500)</span>
+                                            </label>
+                                        </div>
+
+                                        <div class="form-check mb-3">
+                                            <input class="form-check-input service-checkbox" type="checkbox" id="microchip" name="services" value="microchip" data-price="700">
+                                            <label class="form-check-label" for="microchip">
+                                                Microchipping <span class="text-muted">(₱700)</span>
+                                            </label>
+                                        </div>
+                                    </fieldset>
+
+                                    <fieldset class="mb-4">
+                                        <legend class="form-label fw-bold text-primary mb-3">Care Services</legend>
+                                        
+                                        <div class="mb-3">
+                                            <label for="boardingDays" class="form-label">Boarding (number of days)</label>
+                                            <input type="number" class="form-control" id="boardingDays" name="boardingDays" min="0" value="0" placeholder="0">
+                                            <small class="text-muted">₱999 per night</small>
+                                        </div>
+
+                                    </fieldset>
+
+                                    <div class="d-grid gap-2">
+                                        <button type="submit" class="btn btn-primary btn-lg">Calculate Total</button>
+                                        <button type="reset" class="btn btn-outline-secondary">Clear All</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </article>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <article class="card position-sticky" style="top: 20px;">
+                            <div class="card-header bg-primary text-white">
+                                <h3 class="card-title mb-0">Cost Summary</h3>
+                            </div>
+                            <div class="card-body">
+                                <section class="mb-4">
+                                    <h5 class="text-primary fw-bold mb-3">Selected Services</h5>
+                                    <div id="selectedServices" class="list-group list-group-flush">
+                                        <p class="text-muted">Select services to see them listed here...</p>
+                                    </div>
+                                </section>
+
+                                <section class="mb-4 pt-3 border-top">
+                                    <h5 class="text-primary fw-bold mb-3">Cost Breakdown</h5>
+                                    <div class="d-flex justify-content-between mb-2">
+                                        <span>Services Subtotal:</span>
+                                        <span id="subtotal">₱0.00</span>
+                                    </div>
+                                    <div class="d-flex justify-content-between mb-2">
+                                        <span>Boarding Cost:</span>
+                                        <span id="boardingCost">₱0.00</span>
+                                    </div>
+                                    <div class="d-flex justify-content-between mb-3" id="discountRow" style="display: none;">
+                                        <span class="text-success">Bundle Discount (10%):</span>
+                                        <span id="discountAmount" class="text-success">-₱0.00</span>
+                                    </div>
+                                </section>
+
+                                <section class="p-3 bg-light rounded mb-4">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <h4 class="mb-0 text-primary fw-bold">Total Cost:</h4>
+                                        <h3 class="mb-0 text-primary fw-bold" id="totalCost">₱0.00</h3>
+                                    </div>
+                                </section>
+                                <section id="petInfoDisplay" style="display: none;" class="mb-4 p-3 bg-info bg-opacity-10 rounded">
+                                    <h5 class="text-primary fw-bold mb-2">Pet Information</h5>
+                                    <p class="mb-1"><strong>Name:</strong> <span id="displayPetName">-</span></p>
+                                    <p class="mb-0"><strong>Size:</strong> <span id="displayPetSize">-</span></p>
+                                </section>
+
+                                <section class="p-3 bg-light rounded">
+                                    <small class="text-muted">
+                                        <strong>Services Selected:</strong> <span id="serviceCount">0</span>
+                                    </small>
+                                </section>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-5 bg-light">
+            <div class="container">
+                <h2 class="text-primary fw-bold mb-4 text-center">How the Calculator Works</h2>
+                <div class="row g-4">
+                    <div class="col-md-6">
+                        <div class="card border-primary h-100">
+                            <div class="card-body">
+                                <h5 class="card-title text-primary fw-bold">Step 1: Enter Pet Info</h5>
+                                <p class="card-text">Start by entering your pet's name and selecting their size. This helps us provide accurate pricing.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card border-primary h-100">
+                            <div class="card-body">
+                                <h5 class="card-title text-primary fw-bold">Step 2: Select Services</h5>
+                                <p class="card-text">Choose all the services you'd like for your pet. You can select multiple services from different categories.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card border-primary h-100">
+                            <div class="card-body">
+                                <h5 class="card-title text-primary fw-bold">Step 3: Get Instant Quote</h5>
+                                <p class="card-text">The calculator automatically computes your total, including any applicable discounts.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card border-primary h-100">
+                            <div class="card-body">
+                                <h5 class="card-title text-primary fw-bold">Step 4: Review & Contact</h5>
+                                <p class="card-text">Review your quote and contact us to book your services. We offer flexible scheduling!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="text-white py-4 mt-5">
+        <div class="container text-center">
+            <p class="mb-2">&copy; 2026 The Pet Haven & Hospital. All rights reserved.</p>
+            <p class="text-white">Committed to the health and happiness of your pets</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
