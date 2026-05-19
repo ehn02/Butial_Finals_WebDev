@@ -1,0 +1,9 @@
+# Reflection Question
+
+For this final project, I chose Scenario A because it reflects a real-world problem that many Filipinos experience today. Through this project, I was able to apply my knowledge in HTML, CSS, JavaScript, and Bootstrap to create a practical and responsive web solution.
+
+This project reflects the NTC mission of building character because it encouraged me to become responsible, creative, and disciplined in developing a professional-quality website. I practiced patience, problem-solving, and attention to detail while designing the interface and implementing the required features.
+
+It is also responsive to the needs of the Republic of the Philippines because digital solutions are becoming more important in communities, businesses, and education. By creating a responsive and user-friendly website, I aimed to help improve accessibility, communication, and efficiency for users. The project shows how technology can be used not only for innovation but also to support local communities and provide practical services for Filipinos.
+
+Overall, this project helped me understand how web development skills can contribute to real-life situations and how technology can be used responsibly to serve others.
